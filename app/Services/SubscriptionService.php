@@ -35,7 +35,7 @@ class SubscriptionService
         $emails = $this->getEmails();
 
         // get actual BTC to UAH rate
-        $currentRate = (new RateService)->getCurrentRates();
+        $currentRate = (new RateService())->getCurrentRates();
 
         // send email to all subscribed emails
         foreach ($emails as $email) {
@@ -69,5 +69,4 @@ class SubscriptionService
         $content = json_encode($emails);
         File::put($this->databasePath, $content);
     }
-
 }

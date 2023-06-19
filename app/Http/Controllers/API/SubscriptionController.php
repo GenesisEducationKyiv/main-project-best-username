@@ -42,5 +42,4 @@ class SubscriptionController extends Controller
 
         return response()->json();
     }
-
 }

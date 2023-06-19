@@ -6,7 +6,6 @@ use GuzzleHttp\Client;
 
 class RateService
 {
-
     public function getCurrentRates()
     {
         $client = new Client();
@@ -20,5 +19,4 @@ class RateService
 
         return null;
     }
-
 }

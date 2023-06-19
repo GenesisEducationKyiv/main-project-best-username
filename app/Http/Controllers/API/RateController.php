@@ -9,7 +9,7 @@ class RateController extends Controller
 {
     public function index()
     {
-        $result = (new RateService)->getCurrentRates();
+        $result = (new RateService())->getCurrentRates();
 
         if (!$result) {
             return response()->json(0, 400);
