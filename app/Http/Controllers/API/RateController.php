@@ -18,7 +18,7 @@ class RateController extends Controller
     /**
      * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
         $currentRates = $this->rateService->getCurrentRates();
 

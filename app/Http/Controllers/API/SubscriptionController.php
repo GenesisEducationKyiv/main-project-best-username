@@ -23,7 +23,7 @@ class SubscriptionController extends Controller
      * @param SubscribeRequest $request
      * @return JsonResponse
      */
-    public function subscribe(SubscribeRequest $request)
+    public function subscribe(SubscribeRequest $request): JsonResponse
     {
         $email = $request->validated()['email'];
         $subscriptionResult = $this->subscriptionService->subscribe($email);
@@ -39,7 +39,7 @@ class SubscriptionController extends Controller
     /** Send email to all emails in database
      * @return JsonResponse
      */
-    public function sendEmails()
+    public function sendEmails(): JsonResponse
     {
         $this->notificationService->sendEmails();
 

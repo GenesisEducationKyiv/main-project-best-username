@@ -2,9 +2,7 @@
 
 namespace App\Services;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Mail;
 
 class SubscriptionService
 {
@@ -12,13 +10,13 @@ class SubscriptionService
 
     /**
      * @param string $email
-     * @return bool|null
+     * @return bool
      */
-    public function subscribe(string $email)
+    public function subscribe(string $email): bool
     {
         $emails = $this->getEmails();
         if (in_array($email, $emails)) {
-            return null;
+            return false;
         }
 
         $emails[] = $email;
@@ -28,9 +26,9 @@ class SubscriptionService
     }
 
     /** Get list of emails from file storage
-     * @return array|mixed
+     * @return array
      */
-    public function getEmails()
+    public function getEmails(): array
     {
         if (File::exists($this->databasePath)) {
             $content = File::get($this->databasePath);
@@ -44,7 +42,7 @@ class SubscriptionService
      * @param $emails
      * @return void
      */
-    public function saveEmails($emails)
+    public function saveEmails($emails): void
     {
         $content = json_encode($emails);
         File::put($this->databasePath, $content);
