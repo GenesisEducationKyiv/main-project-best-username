@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class SubscriptionService
 {
-    private $databasePath = 'emails.json';
+    private string $databasePath = 'emails.json';
 
     /**
      * @param string $email
@@ -25,26 +25,6 @@ class SubscriptionService
         $this->saveEmails($emails);
 
         return true;
-    }
-
-    /**
-     * @return JsonResponse
-     */
-    public function sendEmails()
-    {
-        $emails = $this->getEmails();
-
-        // get actual BTC to UAH rate
-        $currentRate = (new RateService())->getCurrentRates();
-
-        // send email to all subscribed emails
-        foreach ($emails as $email) {
-            Mail::raw("Поточний курс BTC до UAH: $currentRate", function ($message) use ($email) {
-                $message->to($email)->subject('Актуальний курс BTC до UAH');
-            });
-        }
-
-        return response()->json();
     }
 
     /** Get list of emails from file storage
@@ -69,4 +49,5 @@ class SubscriptionService
         $content = json_encode($emails);
         File::put($this->databasePath, $content);
     }
+
 }
