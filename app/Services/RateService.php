@@ -9,9 +9,9 @@ class RateService
 {
     protected Client $httpClient;
 
-    public function __construct()
+    public function __construct(?Client $httpClient = null)
     {
-        $this->httpClient = new Client();
+        $this->httpClient = $httpClient ?? new Client();
     }
 
     /**
