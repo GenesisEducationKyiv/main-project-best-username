@@ -6,7 +6,12 @@ use Illuminate\Support\Facades\File;
 
 class SubscriptionService
 {
-    private string $databasePath = 'emails.json';
+    private string $databasePath;
+
+    public function __construct(string $databasePath = 'emails.json')
+    {
+        $this->databasePath = $databasePath;
+    }
 
     /**
      * @param string $email
@@ -40,12 +45,14 @@ class SubscriptionService
 
     /** Put email to file storage
      * @param $emails
-     * @return void
+     * @return bool
      */
-    public function saveEmails($emails): void
+    public function saveEmails($emails): bool
     {
         $content = json_encode($emails);
         File::put($this->databasePath, $content);
+
+        return true;
     }
 
 }

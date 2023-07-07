@@ -11,6 +11,12 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
+        <testsuite name="Services">
+            <directory suffix="Test.php">./tests/App/Services</directory>
+        </testsuite>
+        <testsuite name="Controllers">
+            <directory suffix="Test.php">./tests/App/Controllers</directory>
+        </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
