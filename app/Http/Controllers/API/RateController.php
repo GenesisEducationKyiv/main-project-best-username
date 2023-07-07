@@ -10,9 +10,9 @@ class RateController extends Controller
 {
     private RateService $rateService;
 
-    public function __construct()
+    public function __construct(RateService $rateService)
     {
-        $this->rateService = new RateService();
+        $this->rateService = $rateService;
     }
 
     /**

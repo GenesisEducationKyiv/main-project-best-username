@@ -13,10 +13,10 @@ class SubscriptionController extends Controller
     private SubscriptionService $subscriptionService;
     private NotificationService $notificationService;
 
-    public function __construct(?SubscriptionService $subscriptionService = null, ?NotificationService $notificationService = null)
+    public function __construct(SubscriptionService $subscriptionService, NotificationService $notificationService)
     {
-        $this->subscriptionService = $subscriptionService ?? new SubscriptionService();
-        $this->notificationService = $notificationService ?? new NotificationService();
+        $this->subscriptionService = $subscriptionService;
+        $this->notificationService = $notificationService;
     }
 
     /** Subscribe for email notification about current rate
