@@ -11,11 +11,13 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
-        <testsuite name="Services">
-            <directory suffix="Test.php">./tests/App/Services</directory>
+        <testsuite name="RateModule">
+            <directory suffix="Test.php">Modules/Rate/Tests/App/Controllers</directory>
+            <directory suffix="Test.php">Modules/Rate/Tests/App/Services</directory>
         </testsuite>
-        <testsuite name="Controllers">
-            <directory suffix="Test.php">./tests/App/Controllers</directory>
+        <testsuite name="SubscriptionModule">
+            <directory suffix="Test.php">Modules/Subscription/Tests/App/Controllers</directory>
+            <directory suffix="Test.php">Modules/Subscription/Tests/App/Services</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
